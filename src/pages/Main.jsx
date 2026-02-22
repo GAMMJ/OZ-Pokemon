@@ -15,7 +15,7 @@ export const Main = () => {
   return (
     <div className="flex flex-wrap gap-3.5 bg-[#818181] p-3">
       {pokemonList.map((pokemon) => (
-        <Card pokemon={pokemon} />
+        <Card key={pokemon.id} pokemon={pokemon} />
       ))}
     </div>
   )
