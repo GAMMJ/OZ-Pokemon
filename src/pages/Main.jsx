@@ -13,7 +13,7 @@ export const Main = () => {
   if (error) return <div>Error: {error}</div>
 
   return (
-    <div className="flex flex-wrap gap-3.5 bg-[#818181] p-3">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,160px))] justify-center gap-4">
       {pokemonList.map((pokemon) => (
         <Card key={pokemon.id} pokemon={pokemon} />
       ))}
