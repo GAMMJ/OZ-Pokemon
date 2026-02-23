@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router"
 import { usePokemonStore } from "../store/pokemonStore"
 import { Card } from "../component/Card"
 
-export const Search = () => {
+const Search = () => {
   const [searchParams] = useSearchParams()
   const param = searchParams.get("pokemon")
   const reg = getRegExp(param)
@@ -19,3 +19,5 @@ export const Search = () => {
     </div>
   )
 }
+
+export default Search
