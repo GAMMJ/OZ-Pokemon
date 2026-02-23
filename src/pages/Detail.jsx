@@ -13,16 +13,9 @@ const Detail = () => {
     if (pokemonList.length === 0) {
       fetchMultiplePokemonById(151)
     }
-  }, [])
+  }, [fetchMultiplePokemonById, pokemonList.length])
 
   const pokemon = pokemonList.find((el) => el.id === Number(pokemonId))
-
-  if (!pokemon)
-    return (
-      <div className="flex justify-center items-center h-[80vh]">
-        <Loading />
-      </div>
-    )
 
   return (
     <div className="flex justify-center">

@@ -7,7 +7,7 @@ const Main = () => {
 
   useEffect(() => {
     fetchMultiplePokemonById(151)
-  }, [])
+  }, [fetchMultiplePokemonById])
 
   return (
     <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,160px))] justify-center gap-4">
