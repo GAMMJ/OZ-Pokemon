@@ -1,5 +1,5 @@
 import { Link, Route, Routes, useNavigate } from "react-router"
-import { lazy, Suspense } from "react"
+import { lazy, Suspense, useCallback, useRef } from "react"
 import { Loading } from "./component/Loading"
 import { ErrorBoundary } from "./component/ErrorBoundary"
 
@@ -10,6 +10,22 @@ const Favorite = lazy(() => import("./pages/Favorite"))
 
 function App() {
   const navigate = useNavigate()
+  const debounceTimer = useRef(null)
+
+  const handleSearchChange = useCallback(
+    (e) => {
+      const value = e.target.value
+
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current)
+      }
+
+      debounceTimer.current = setTimeout(() => {
+        navigate(`search?pokemon=${value}`)
+      }, 300)
+    },
+    [navigate],
+  )
 
   return (
     <div className="bg-[#818181] min-h-screen">
@@ -19,11 +35,7 @@ function App() {
         <Link to={"/"}>메인페이지</Link>
         <Link to={"/favorite"}>찜</Link>
         <div>
-          <input
-            placeholder="검색"
-            onChange={(e) => navigate(`search?pokemon=${e.target.value}`)}
-            className="border-b p-1.5 outline-none"
-          />
+          <input placeholder="검색" onChange={handleSearchChange} className="border-b p-1.5 outline-none" />
         </div>
       </nav>
       <main className="p-4">
