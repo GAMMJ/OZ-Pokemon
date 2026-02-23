@@ -13,14 +13,14 @@ export const Card = ({ pokemon }) => {
         className="flex flex-col justify-center w-37.5 items-center bg-white rounded-2xl gap-2.5 shadow-[4px_4px_0px_black] transition transform hover:-translate-y-1"
       >
         <img className="w-30" src={pokemon.front} alt={pokemon.name} />
-        <div className="pb-2 text-[#1e1e1e]">
+        <div className="pb-2 text-[#1e1e1e] flex items-center">
           {pokemon.name}
           <button
             onClick={(e) => {
               e.stopPropagation()
               toggleFavorite(pokemon)
             }}
-            className={isFavorite ? "text-red-500" : ""}
+            className={`mt-1 ml-1 ${isFavorite ? "text-red-500" : ""}`}
           >
             {isFavorite ? "♥" : "♡"}
           </button>

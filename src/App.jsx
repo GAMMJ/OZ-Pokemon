@@ -15,11 +15,12 @@ function App() {
     <div className="bg-[#818181] min-h-screen">
       <div className="bg-red-600 w-full h-14"></div>
       <h1 className="text-4xl text-center bg-black text-white p-2">포켓몬 도감</h1>
-      <nav className="flex gap-3.5 justify-center items-center py-3 bg-white text-[#1e1e1e]">
+      <nav className="flex gap-8 justify-center items-center py-3 bg-white text-[#1e1e1e]">
         <Link to={"/"}>메인페이지</Link>
         <Link to={"/favorite"}>찜</Link>
         <div>
           <input
+            placeholder="검색"
             onChange={(e) => navigate(`search?pokemon=${e.target.value}`)}
             className="border-b p-1.5 outline-none"
           />
